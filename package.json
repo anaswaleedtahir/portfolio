@@ -10,10 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@fontsource/ibm-plex-mono": "^5.2.7",
-    "@fontsource/montserrat": "^5.2.8",
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/speed-insights": "^2.0.0",
+    "geist": "^1.7.2",
     "next": "16.2.9",
     "react": "19.2.7",
     "react-dom": "19.2.7"

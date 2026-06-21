@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { identity, identityColors } from "./identity/identity";
-import { loadIbmPlexMono600, loadMontserrat900 } from "./og/load-fonts";
+import { geistSans, loadGeistBlack, loadGeistSemiBold } from "./og/load-geist";
 
 export const alt = `${identity.fullName} — ${identity.role}`;
 export const size = { width: 1200, height: 630 };
@@ -8,7 +8,7 @@ export const contentType = "image/png";
 export const dynamic = "force-static";
 
 export default async function OpenGraphImage() {
-  const [montserrat, mono] = await Promise.all([loadMontserrat900(), loadIbmPlexMono600()]);
+  const [black, semiBold] = await Promise.all([loadGeistBlack(), loadGeistSemiBold()]);
 
   return new ImageResponse(
     (
@@ -22,7 +22,7 @@ export default async function OpenGraphImage() {
           padding: "72px 80px",
           background: identityColors.paper,
           color: identityColors.ink,
-          fontFamily: "IBM Plex Mono",
+          fontFamily: geistSans,
         }}
       >
         <div
@@ -50,7 +50,6 @@ export default async function OpenGraphImage() {
           <div
             style={{
               display: "flex",
-              fontFamily: "Montserrat",
               fontSize: 168,
               fontWeight: 900,
               letterSpacing: "0.03em",
@@ -109,18 +108,8 @@ export default async function OpenGraphImage() {
     {
       ...size,
       fonts: [
-        {
-          name: "Montserrat",
-          data: montserrat,
-          style: "normal",
-          weight: 900,
-        },
-        {
-          name: "IBM Plex Mono",
-          data: mono,
-          style: "normal",
-          weight: 600,
-        },
+        { name: geistSans, data: black, style: "normal", weight: 900 },
+        { name: geistSans, data: semiBold, style: "normal", weight: 600 },
       ],
     },
   );

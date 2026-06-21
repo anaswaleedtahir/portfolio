@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
 import { identityColors } from "./identity/identity";
-import { loadMontserrat900 } from "./og/load-fonts";
+import { geistSans, loadGeistBlack } from "./og/load-geist";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 export const dynamic = "force-static";
 
 export default async function AppleIcon() {
-  const montserrat = await loadMontserrat900();
+  const black = await loadGeistBlack();
 
   return new ImageResponse(
     (
@@ -31,7 +31,7 @@ export default async function AppleIcon() {
           <div
             style={{
               display: "flex",
-              fontFamily: "Montserrat",
+              fontFamily: geistSans,
               fontSize: 108,
               fontWeight: 900,
               color: identityColors.paper,
@@ -56,14 +56,7 @@ export default async function AppleIcon() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Montserrat",
-          data: montserrat,
-          style: "normal",
-          weight: 900,
-        },
-      ],
+      fonts: [{ name: geistSans, data: black, style: "normal", weight: 900 }],
     },
   );
 }

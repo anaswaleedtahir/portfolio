@@ -1,5 +1,6 @@
 "use client";
 
+import { accentRgba42, inkRgba } from "../identity/identity";
 import { useEffect, useRef } from "react";
 import styles from "./ambient-field.module.css";
 
@@ -79,8 +80,8 @@ export function AmbientField() {
         const isCenterLine = line === 2;
 
         context.strokeStyle = isCenterLine
-          ? "rgba(8, 185, 232, 0.42)"
-          : `rgba(25, 35, 51, ${0.2 - line * 0.012})`;
+          ? accentRgba42
+          : inkRgba(0.2 - line * 0.012);
         context.lineWidth = isCenterLine ? 1.35 : 0.8;
         context.stroke();
       }

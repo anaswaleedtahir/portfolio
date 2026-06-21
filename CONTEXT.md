@@ -40,10 +40,3 @@ _Avoid_: Hero video, particle system
 
 > **Visitor:** "Where can I see what Anas has built?"
 > **Portfolio:** "Use the GitHub **Professional Profile**; LinkedIn provides the broader professional history."
-
-## Flagged ambiguities
-
-- "One page" initially meant either a single static screen or an internal transition between views; resolved as exactly one **Identity View** with external GitHub and LinkedIn links.
-- "One page transition" means a one-time entrance reveal of the **Identity View**, not a route or shared-element transition.
-- The displayed name initially meant either the full name or first name; resolved as `ANAS` for the primary signature and `ANAS WALEED TAHIR` in supporting identity metadata.
-- "Inspired by" means retaining the reference's broad spatial grammar while using original typography, contour behavior, spacing, motion, and metadata treatment.

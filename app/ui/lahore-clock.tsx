@@ -15,19 +15,8 @@ export function LahoreClock() {
   useEffect(() => {
     const update = () => setTime(formatter.format(new Date()));
     update();
-
-    const now = new Date();
-    const delay = (60 - now.getSeconds()) * 1000 - now.getMilliseconds();
-    let interval: ReturnType<typeof setInterval> | undefined;
-    const timeout = window.setTimeout(() => {
-      update();
-      interval = setInterval(update, 60_000);
-    }, delay);
-
-    return () => {
-      window.clearTimeout(timeout);
-      if (interval) clearInterval(interval);
-    };
+    const interval = window.setInterval(update, 60_000);
+    return () => window.clearInterval(interval);
   }, []);
 
   return (

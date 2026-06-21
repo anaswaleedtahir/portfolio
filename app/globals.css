@@ -24,10 +24,12 @@
 
 @layer base {
   :root {
+    /* sync with app/identity/identity.ts */
     --paper: #ebe7dc;
     --paper-glow: #f5f1e7;
     --ink: #192333;
     --accent: #08b9e8;
+    --font-sans: var(--font-geist-sans);
     --edge: clamp(1.25rem, 4vw, 4.5rem);
     --ease-out-expressive: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
@@ -41,7 +43,7 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: var(--font-mono), "SFMono-Regular", Consolas, monospace;
+    font-family: var(--font-sans);
   }
 
   ::selection {
@@ -184,7 +186,6 @@
     margin: 0;
     padding-block: 0.06em;
     color: var(--ink);
-    font-family: var(--font-display), Arial, sans-serif;
     font-size: clamp(5.2rem, 19.5vw, 20rem);
     font-weight: 900;
     line-height: 0.92;
