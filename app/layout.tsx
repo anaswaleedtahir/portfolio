@@ -1,7 +1,14 @@
 import type { Viewport } from "next";
-import { GeistSans } from "geist/font/sans";
+import { Oxanium } from "next/font/google";
 import { identityColors, identityMetadata } from "./identity/identity";
 import "./globals.css";
+
+const oxanium = Oxanium({
+  subsets: ["latin"],
+  weight: ["600", "800"],
+  variable: "--font-oxanium",
+  display: "swap",
+});
 
 export const metadata = identityMetadata;
 
@@ -12,7 +19,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html className={GeistSans.variable} lang="en">
+    <html className={oxanium.variable} lang="en">
       <body>{children}</body>
     </html>
   );

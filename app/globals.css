@@ -29,7 +29,7 @@
     --paper-glow: #f5f1e7;
     --ink: #192333;
     --accent: #08b9e8;
-    --font-sans: var(--font-geist-sans);
+    --font-sans: var(--font-oxanium);
     --edge: clamp(1.25rem, 4vw, 4.5rem);
     --ease-out-expressive: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
@@ -187,7 +187,7 @@
     padding-block: 0.06em;
     color: var(--ink);
     font-size: clamp(5.2rem, 19.5vw, 20rem);
-    font-weight: 900;
+    font-weight: 800;
     line-height: 0.92;
     letter-spacing: 0.03em;
     text-transform: uppercase;

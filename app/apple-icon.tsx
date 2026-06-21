@@ -1,13 +1,13 @@
 import { ImageResponse } from "next/og";
 import { identityColors } from "./identity/identity";
-import { geistSans, loadGeistBlack } from "./og/load-geist";
+import { loadOxanium800, oxanium } from "./og/load-oxanium";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 export const dynamic = "force-static";
 
 export default async function AppleIcon() {
-  const black = await loadGeistBlack();
+  const extraBold = await loadOxanium800();
 
   return new ImageResponse(
     (
@@ -31,9 +31,9 @@ export default async function AppleIcon() {
           <div
             style={{
               display: "flex",
-              fontFamily: geistSans,
+              fontFamily: oxanium,
               fontSize: 108,
-              fontWeight: 900,
+              fontWeight: 800,
               color: identityColors.paper,
               letterSpacing: "-0.02em",
               textTransform: "uppercase",
@@ -56,7 +56,7 @@ export default async function AppleIcon() {
     ),
     {
       ...size,
-      fonts: [{ name: geistSans, data: black, style: "normal", weight: 900 }],
+      fonts: [{ name: oxanium, data: extraBold, style: "normal", weight: 800 }],
     },
   );
 }

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import { identity, identityColors } from "./identity/identity";
-import { geistSans, loadGeistBlack, loadGeistSemiBold } from "./og/load-geist";
+import { loadOxanium600, loadOxanium800, oxanium } from "./og/load-oxanium";
 
 export const alt = `${identity.fullName} — ${identity.role}`;
 export const size = { width: 1200, height: 630 };
@@ -8,7 +8,7 @@ export const contentType = "image/png";
 export const dynamic = "force-static";
 
 export default async function OpenGraphImage() {
-  const [black, semiBold] = await Promise.all([loadGeistBlack(), loadGeistSemiBold()]);
+  const [extraBold, semiBold] = await Promise.all([loadOxanium800(), loadOxanium600()]);
 
   return new ImageResponse(
     (
@@ -22,7 +22,7 @@ export default async function OpenGraphImage() {
           padding: "72px 80px",
           background: identityColors.paper,
           color: identityColors.ink,
-          fontFamily: geistSans,
+          fontFamily: oxanium,
         }}
       >
         <div
@@ -51,7 +51,7 @@ export default async function OpenGraphImage() {
             style={{
               display: "flex",
               fontSize: 168,
-              fontWeight: 900,
+              fontWeight: 800,
               letterSpacing: "0.03em",
               lineHeight: 0.92,
               textTransform: "uppercase",
@@ -108,8 +108,8 @@ export default async function OpenGraphImage() {
     {
       ...size,
       fonts: [
-        { name: geistSans, data: black, style: "normal", weight: 900 },
-        { name: geistSans, data: semiBold, style: "normal", weight: 600 },
+        { name: oxanium, data: extraBold, style: "normal", weight: 800 },
+        { name: oxanium, data: semiBold, style: "normal", weight: 600 },
       ],
     },
   );
