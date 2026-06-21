@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
 import { AmbientField } from "../ui/ambient-field";
 import { LahoreClock } from "../ui/lahore-clock";
-
-const identity = {
-  displayName: "Anas",
-  fullName: "Anas Waleed Tahir",
-  role: "Backend & Platform Engineer",
-  location: "Lahore, Pakistan",
-} as const;
+import { identity } from "./identity";
 
 const title = `${identity.fullName} — ${identity.role}`;
 const description = `${identity.fullName} is a ${identity.role} based in ${identity.location}.`;
 const socialDescription = `${identity.role} based in ${identity.location}.`;
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
 export const identityMetadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title,
   description,
   authors: [{ name: identity.fullName }],
@@ -24,7 +23,7 @@ export const identityMetadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title,
     description: socialDescription,
   },

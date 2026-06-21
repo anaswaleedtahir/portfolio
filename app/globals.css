@@ -41,7 +41,7 @@
   body {
     background: var(--paper);
     color: var(--ink);
-    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    font-family: var(--font-mono), "SFMono-Regular", Consolas, monospace;
   }
 
   ::selection {
@@ -68,6 +68,7 @@
     padding: clamp(1.5rem, 5.5vh, 4.5rem) var(--edge)
       clamp(1.3rem, 4.5vh, 3.75rem);
     background:
+      radial-gradient(circle at 50% 48%, rgba(8, 185, 232, 0.07), transparent 38%),
       radial-gradient(circle at 52% 92%, rgba(255, 253, 246, 0.78), transparent 46%),
       linear-gradient(180deg, rgba(206, 222, 229, 0.52), transparent 42%),
       var(--paper);
@@ -183,7 +184,7 @@
     margin: 0;
     padding-block: 0.06em;
     color: var(--ink);
-    font-family: "Montserrat", Arial, sans-serif;
+    font-family: var(--font-display), Arial, sans-serif;
     font-size: clamp(5.2rem, 19.5vw, 20rem);
     font-weight: 900;
     line-height: 0.92;
@@ -235,7 +236,19 @@
   }
 
   .role {
+    position: relative;
     text-align: center;
+    font-size: clamp(0.72rem, 0.92vw, 0.92rem);
+    letter-spacing: 0.12em;
+  }
+
+  .role::after {
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    margin: 0.45rem auto 0;
+    background: var(--accent);
+    content: "";
   }
 
   .copyright {
@@ -267,7 +280,7 @@
 
   .entrance-name {
     animation-name: name-reveal;
-    animation-delay: 140ms;
+    animation-delay: 180ms;
   }
 
   .entrance-signal {
@@ -358,6 +371,12 @@
   .role {
     grid-column: 1 / -1;
     grid-row: 1;
+    font-size: clamp(0.64rem, 2.6vw, 0.78rem);
+  }
+
+  .role::after {
+    width: 2rem;
+    margin-top: 0.35rem;
   }
 
   .clock {

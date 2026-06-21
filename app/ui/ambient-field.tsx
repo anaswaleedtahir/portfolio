@@ -76,8 +76,12 @@ export function AmbientField() {
           else context.lineTo(x, y);
         }
 
-        context.strokeStyle = `rgba(25, 35, 51, ${0.2 - line * 0.012})`;
-        context.lineWidth = line === 2 ? 1.25 : 0.8;
+        const isCenterLine = line === 2;
+
+        context.strokeStyle = isCenterLine
+          ? "rgba(8, 185, 232, 0.42)"
+          : `rgba(25, 35, 51, ${0.2 - line * 0.012})`;
+        context.lineWidth = isCenterLine ? 1.35 : 0.8;
         context.stroke();
       }
     };

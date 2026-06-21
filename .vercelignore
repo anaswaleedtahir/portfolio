@@ -1,0 +1,7 @@
+# Agent and domain documentation (development only)
+docs/
+AGENTS.md
+CONTEXT.md
+
+# Local issue tracker scratch space
+.scratch/
